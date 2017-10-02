@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>RMarusyk</Authors>
+    <Company />
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Marusyk/WebAPI.Patch</RepositoryUrl>
+    <PackageTags>patch; webapi;</PackageTags>
+    <Description>WebAPI.HttpPatch implementation for .NET to easily allow &amp; apply partial REST-ful service (through Web API)</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>
