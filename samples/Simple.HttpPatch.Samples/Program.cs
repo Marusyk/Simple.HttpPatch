@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace TestWebApi
+namespace Simple.HttpPatch.Samples
 {
 	public class Program
     {

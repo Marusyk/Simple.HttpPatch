@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Roman Marusyk</Authors>
+    <Company />
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Marusyk/Simple.HttpPatch</RepositoryUrl>
+    <PackageTags>patch; webapi; restful;</PackageTags>
+    <Description>Simple.HttpPatch implementation for .NET to easily allow &amp; apply partial REST-ful service (through Web API)</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>

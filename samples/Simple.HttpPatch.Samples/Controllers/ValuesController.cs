@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Simple.HttpPatch.Samples.Model;
 using System;
 using System.Collections.Generic;
-using TestWebApi.Model;
-using WebAPI.HttpPatch;
 
-namespace TestWebApi.Controllers
+namespace Simple.HttpPatch.Samples.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller

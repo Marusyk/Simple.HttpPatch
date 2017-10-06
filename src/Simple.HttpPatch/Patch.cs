@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Reflection;
 
-namespace WebAPI.HttpPatch
+namespace Simple.HttpPatch
 {
     public sealed class Patch<TModel> : DynamicObject where TModel : class
     {

@@ -5,7 +5,7 @@ var skipTests = Argument("SkipTests", true);
 
 // GLOBAL VARIABLES
 var artifactsDirectory = Directory("./artifacts");
-var solutionFile = "./WebAPI.Patch.sln";
+var solutionFile = "./Simple.HttpPatch.sln";
 var solutionFileBackup = solutionFile + ".build.backup";
 var isRunningOnWindows = IsRunningOnWindows();
 var IsOnAppVeyorAndNotPR = AppVeyor.IsRunningOnAppVeyor && !AppVeyor.Environment.PullRequest.IsPullRequest;

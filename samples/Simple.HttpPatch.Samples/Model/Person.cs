@@ -1,6 +1,6 @@
 using System;
 
-namespace TestWebApi.Model
+namespace Simple.HttpPatch.Samples.Model
 {
     public class Person
     {
