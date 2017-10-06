@@ -85,5 +85,9 @@ if [ ! -f "$CAKE_EXE" ]; then
     exit 1
 fi
 
-dotnet restore
-dotnet build
+###########################################################################
+# RUN BUILD SCRIPT
+###########################################################################
+
+# Start Cake
+exec mono "$CAKE_EXE" build.cake --verbosity=$VERBOSITY --configuration=$CONFIGURATION --target=$TARGET $DRYRUN "${SCRIPT_ARGUMENTS[@]}"
