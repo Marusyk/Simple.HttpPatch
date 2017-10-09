@@ -5,6 +5,7 @@ namespace Simple.HttpPatch.Samples.Model
     public class Person
     {
         public int Id { get; set; }
+        [PatchIgnore]
         public string Name { get; set; }
         public int? Age { get; set; }
         public Guid Guid { get; set; }
