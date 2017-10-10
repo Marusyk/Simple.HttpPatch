@@ -1,7 +1,6 @@
 // ARGUMENTS
 var target = Argument("Target", "Default");
 var configuration = Argument("Configuration", "Release");
-var skipTests = Argument("SkipTests", true);
 
 // GLOBAL VARIABLES
 var artifactsDirectory = Directory("./artifacts");
@@ -84,29 +83,29 @@ Task("Build")
         MSBuild(path.FullPath, buildSettings);
     });    
 
-// Task("Pack")
-//     .IsDependentOn("Restore")
-//     .WithCriteria(IsOnAppVeyorAndNotPR || string.Equals(target, "pack", StringComparison.OrdinalIgnoreCase))
-//     .Does(() =>
-//     {
-//         var settings = new DotNetCorePackSettings
-//         {
-//             Configuration = configuration,
-//             OutputDirectory = artifactsDirectory
-//         };
+Task("Pack")
+    .IsDependentOn("Restore")
+    .WithCriteria(IsOnAppVeyorAndNotPR || string.Equals(target, "pack", StringComparison.OrdinalIgnoreCase))
+    .Does(() =>
+    {
+        var settings = new DotNetCorePackSettings
+        {
+            Configuration = configuration,
+            OutputDirectory = artifactsDirectory
+        };
 
-//         var projects = GetFiles("./src/**/*.csproj");
-//         foreach(var project in projects.Where(p => !p.FullPath.Contains("Disassembler")))
-//         {
-//             DotNetCorePack(project.FullPath, settings);
-//         }
-//     });
+        var projects = GetFiles("./src/**/*.csproj");
+        foreach(var project in projects)
+        {
+            DotNetCorePack(project.FullPath, settings);
+        }
+    });
 
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
-    .IsDependentOn("Build");
-    //.IsDependentOn("Pack");
+    .IsDependentOn("Build")
+    .IsDependentOn("Pack");
 
 RunTarget(target);
 
