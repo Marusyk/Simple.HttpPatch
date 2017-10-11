@@ -33,10 +33,10 @@ namespace Simple.HttpPatch.Samples.Controllers
         public IEnumerable<string> Patch([FromBody] Patch<Person> person)
         {
             string original = _person.ToString();
-            
+
             person.Apply(_person);
 
-            return new[] 
+            return new[]
             {
                 $"old: {original}",
                 $"new: {_person.ToString()}"
