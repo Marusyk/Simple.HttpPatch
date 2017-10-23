@@ -9,5 +9,10 @@
 
 Simple.HttpPatch implementation for .NET to easily allow & apply partial RESTful service (through Web API) using [HTTP PATCH](https://tools.ietf.org/html/rfc5789) method
 
+## Installation
+
+You can install the latest version via [NuGet](https://www.nuget.org/packages/Simple.HttpPatch/).
+
+`PM> Install-Package Simple.HttpPatch`
 
  
