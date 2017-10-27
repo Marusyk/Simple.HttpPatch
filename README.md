@@ -14,4 +14,8 @@ You can install the latest version via [NuGet](https://www.nuget.org/packages/Si
 
 `PM> Install-Package Simple.HttpPatch`
 
+## How to use
+
+See [samples](https://github.com/Marusyk/Simple.HttpPatch/tree/master/samples/Simple.HttpPatch.Samples) folder to learn of to use this library with ASP.NET Core.
+
  
