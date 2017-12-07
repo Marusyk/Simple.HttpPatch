@@ -26,7 +26,7 @@ public Person Patch([FromBody] Patch<Person> personPatch)
 {
     var person = _repo.GetPersonById(1);
     personPatch.Apply(person);
-    return _person;
+    return person;
 }
 ```
 
