@@ -18,4 +18,18 @@ You can install the latest version via [NuGet](https://www.nuget.org/packages/Si
 
 See [samples](https://github.com/Marusyk/Simple.HttpPatch/tree/master/samples/Simple.HttpPatch.Samples) folder to learn of to use this library with ASP.NET Core.
 
+To exclude properties of an entity while applying the changes to the original entity use `PatchIgnoreAttribute`
+
+```
+public class Person
+{
+	public int Id { get; set; }
+  [PatchIgnore]
+	public string Name { get; set; }
+	public int? Age { get; set; }
+}
+```
+
+*Note: The property with name `Id` is excluded by default*
+
  
