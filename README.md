@@ -20,13 +20,13 @@ See [samples](https://github.com/Marusyk/Simple.HttpPatch/tree/master/samples/Si
 
 To exclude properties of an entity while applying the changes to the original entity use `PatchIgnoreAttribute`
 
-```
+```C#
 public class Person
 {
-	public int Id { get; set; }
-        [PatchIgnore]
-	public string Name { get; set; }
-	public int? Age { get; set; }
+    public int Id { get; set; }
+    [PatchIgnore]
+    public string Name { get; set; }
+    public int? Age { get; set; }
 }
 ```
 
