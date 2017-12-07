@@ -24,7 +24,7 @@ To exclude properties of an entity while applying the changes to the original en
 public class Person
 {
 	public int Id { get; set; }
-  [PatchIgnore]
+        [PatchIgnore]
 	public string Name { get; set; }
 	public int? Age { get; set; }
 }
