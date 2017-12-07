@@ -18,6 +18,18 @@ You can install the latest version via [NuGet](https://www.nuget.org/packages/Si
 
 See [samples](https://github.com/Marusyk/Simple.HttpPatch/tree/master/samples/Simple.HttpPatch.Samples) folder to learn of to use this library with ASP.NET Core.
 
+Patch a single entity
+
+```C#
+[HttpPatch]
+public Person Patch([FromBody] Patch<Person> personPatch)
+{
+    var person = _repo.GetPersonById(1);
+    personPatch.Apply(person);
+    return _person;
+}
+```
+
 To exclude properties of an entity while applying the changes to the original entity use `PatchIgnoreAttribute`
 
 ```C#
