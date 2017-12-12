@@ -30,7 +30,8 @@ public Person Patch([FromBody] Patch<Person> personPatch)
 }
 ```
 
-To exclude properties of an entity while applying the changes to the original entity use `PatchIgnoreAttribute`
+To exclude properties of an entity while applying the changes to the original entity use `PatchIgnoreAttribute`. 
+When your property is a reference type (which allows null) but you don't want that null overwrites your previous stored data then use  `PatchIgnoreNullAttribute`
 
 ```C#
 public class Person
@@ -39,6 +40,8 @@ public class Person
     [PatchIgnore]
     public string Name { get; set; }
     public int? Age { get; set; }
+    [PatchIgnoreNull]
+    public DateTime BirthDate { get; set; }
 }
 ```
 
