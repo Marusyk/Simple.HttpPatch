@@ -18,7 +18,7 @@ namespace Simple.HttpPatch.Samples.Controllers
                 Name = "Bob",
                 Age = 18,
                 Guid = new Guid(),
-                BirthDate = null
+                BirthDate = new DateTime(1992, 2, 14)
             };
         }
 
@@ -39,7 +39,7 @@ namespace Simple.HttpPatch.Samples.Controllers
             return new[]
             {
                 $"old: {original}",
-                $"new: {_person.ToString()}"
+                $"new: {_person}"
             };
         }
     }

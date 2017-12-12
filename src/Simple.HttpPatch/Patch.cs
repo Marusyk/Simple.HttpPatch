@@ -15,10 +15,20 @@ namespace Simple.HttpPatch
             PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name);
             if (propertyInfo != null)
             {
-                bool isIgnoredPropery = propertyInfo.GetCustomAttributes<PatchIgnoreAttribute>().Any();
+                var isIgnoredPropery = propertyInfo.GetCustomAttribute<PatchIgnoreAttribute>() != null;
                 if (!isIgnoredPropery)
                 {
-                    _changedProperties.Add(propertyInfo, value);
+                    var isIgnoredIfNull = propertyInfo.GetCustomAttribute<PatchIgnoreNullAttribute>() != null;
+                    if (isIgnoredIfNull)
+                    {
+                        if (value != null)
+                        {
+                            _changedProperties.Add(propertyInfo, value);
+                        }
+                    } else
+                    {
+                        _changedProperties.Add(propertyInfo, value);
+                    }
                 }
             }
 
@@ -61,7 +71,7 @@ namespace Simple.HttpPatch
                     type = Nullable.GetUnderlyingType(type);
                 }
 
-                return Convert.ChangeType(value, type);
+                return Convert.ChangeType(value, type ?? throw new ArgumentNullException(nameof(type)));
             }
             catch
             {
