@@ -27,6 +27,7 @@ Param(
     [ValidateSet("Quiet", "Minimal", "Normal", "Verbose", "Diagnostic")]
     [string]$Verbosity = "Verbose",
     [switch]$WhatIf,
+    [string]$NugetApiKey,
     [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
     [string[]]$ScriptArgs
 )
@@ -121,6 +122,7 @@ $Arguments = @{
     configuration=$Configuration;
     verbosity=$Verbosity;
     dryrun=$WhatIf;
+    nugetapikey=$NugetApiKey;
 }.GetEnumerator() | %{"--{0}=`"{1}`"" -f $_.key, $_.value };
 
 # Start Cake

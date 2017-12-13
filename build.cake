@@ -1,6 +1,7 @@
 // ARGUMENTS
 var target = Argument("Target", "Default");
 var configuration = Argument("Configuration", "Release");
+var nugetApiKey = Argument("NugetApiKey", "");
 
 // GLOBAL VARIABLES
 var artifactsDirectory = Directory("./artifacts");
@@ -85,7 +86,7 @@ Task("Build")
 
 Task("Pack")
     .IsDependentOn("Restore")
-    .WithCriteria(IsOnAppVeyorAndNotPR || string.Equals(target, "pack", StringComparison.OrdinalIgnoreCase))
+    .WithCriteria(IsOnAppVeyorAndNotPR || !string.IsNullOrEmpty(nugetApiKey))
     .Does(() =>
     {
         var settings = new DotNetCorePackSettings
@@ -101,11 +102,24 @@ Task("Pack")
         }
     });
 
+Task("Publish")
+    .IsDependentOn("Pack")
+    .WithCriteria(IsOnAppVeyorAndNotPR || !string.IsNullOrEmpty(nugetApiKey))
+    .Does(() =>
+    {
+        var dir = string.Concat(artifactsDirectory, @"\*.nupkg");
+        NuGetPush(GetFiles(dir).First(), new NuGetPushSettings {
+            Source = "https://www.nuget.org/api/v2/package",
+            ApiKey = nugetApiKey
+        });
+    });
+
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("Pack");
+    .IsDependentOn("Pack")
+    .IsDependentOn("Publish");
 
 RunTarget(target);
 

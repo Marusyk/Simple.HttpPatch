@@ -17,6 +17,7 @@ CAKE_EXE=$TOOLS_DIR/Cake.$CAKE_VERSION/Cake.exe
 TARGET="Default"
 CONFIGURATION="Release"
 VERBOSITY="verbose"
+NUGETAPIKEY=
 DRYRUN=
 SCRIPT_ARGUMENTS=()
 
@@ -27,6 +28,7 @@ for i in "$@"; do
         -c|--configuration) CONFIGURATION="$2"; shift ;;
         -v|--verbosity) VERBOSITY="$2"; shift ;;
         -d|--dryrun) DRYRUN="-dryrun" ;;
+        -n|--nuget) NUGETAPIKEY="$2"; shift ;;
         --) shift; SCRIPT_ARGUMENTS+=("$@"); break ;;
         *) SCRIPT_ARGUMENTS+=("$1") ;;
     esac
@@ -90,4 +92,4 @@ fi
 ###########################################################################
 
 # Start Cake
-exec mono "$CAKE_EXE" build.cake --verbosity=$VERBOSITY --configuration=$CONFIGURATION --target=$TARGET $DRYRUN "${SCRIPT_ARGUMENTS[@]}"
+exec mono "$CAKE_EXE" build.cake --verbosity=$VERBOSITY --configuration=$CONFIGURATION --target=$TARGET --nuget=$NUGETAPIKEY $DRYRUN "${SCRIPT_ARGUMENTS[@]}"
