@@ -6,7 +6,7 @@
 
 # Simple.HttpPatch
 
-Simple.HttpPatch implementation for .NET to easily allow & apply partial RESTful service (through Web API) using [HTTP PATCH](https://tools.ietf.org/html/rfc5789) method
+Simple.HttpPatch is implementation for .NET (Full framework and Core) to easily allow & apply partial RESTful service (through Web API) using [HTTP PATCH](https://tools.ietf.org/html/rfc5789) method.
 
 ## Installation
 
@@ -47,4 +47,4 @@ public class Person
 
 *Note: The property with name `Id` is excluded by default*
 
- 
+ For firewalls that don't support `PATCH` see [this issue](https://github.com/Marusyk/Simple.HttpPatch/issues/5)
