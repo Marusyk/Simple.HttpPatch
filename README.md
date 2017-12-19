@@ -48,3 +48,11 @@ public class Person
 *Note: The property with name `Id` is excluded by default*
 
  For firewalls that don't support `PATCH` see [this issue](https://github.com/Marusyk/Simple.HttpPatch/issues/5)
+ 
+ ## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/Marusyk/Simple.HttpPatch/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
