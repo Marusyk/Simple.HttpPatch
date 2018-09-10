@@ -12,7 +12,7 @@ namespace Simple.HttpPatch
 
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name);
+            PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
             if (propertyInfo != null)
             {
                 var isIgnoredPropery = propertyInfo.GetCustomAttribute<PatchIgnoreAttribute>() != null;
