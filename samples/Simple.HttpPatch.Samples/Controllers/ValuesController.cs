@@ -9,17 +9,10 @@ namespace Simple.HttpPatch.Samples.Controllers
     public class ValuesController : Controller
     {
         private Person _person;
-        
+
         public ValuesController()
         {
-            _person = new Person
-            {
-                Id = 1,
-                Name = "Bob",
-                Age = 18,
-                Guid = new Guid(),
-                BirthDate = new DateTime(1992, 2, 14)
-            };
+            _person = new Person(1, "Bob", 18, new Guid(), new DateTime(1992, 2, 14));
         }
 
         // GET api/values
