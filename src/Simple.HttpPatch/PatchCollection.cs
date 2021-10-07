@@ -7,7 +7,7 @@ namespace Simple.HttpPatch
     {
         public void Apply(IList<TModel> deltas)
         {
-            if (deltas == null)
+            if (deltas is null)
             {
                 throw new ArgumentNullException(nameof(deltas));
             }

@@ -12,6 +12,7 @@
     <Version>1.1.1-beta</Version>
     <PackageLicenseUrl>https://github.com/Marusyk/Simple.HttpPatch/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>https://github.com/Marusyk/Simple.HttpPatch/blob/master/HttpPatch.png?raw=true</PackageIconUrl>
+    <LangVersion>10</LangVersion>
   </PropertyGroup>
 
 </Project>
