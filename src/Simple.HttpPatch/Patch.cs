@@ -25,7 +25,8 @@ namespace Simple.HttpPatch
                         {
                             _changedProperties.Add(propertyInfo, value);
                         }
-                    } else
+                    }
+                    else
                     {
                         _changedProperties.Add(propertyInfo, value);
                     }
@@ -37,7 +38,7 @@ namespace Simple.HttpPatch
 
         public void Apply(TModel delta)
         {
-            if(delta == null)
+            if (delta == null)
             {
                 throw new ArgumentNullException(nameof(delta));
             }
