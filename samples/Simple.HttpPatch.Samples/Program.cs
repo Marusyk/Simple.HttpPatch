@@ -1,18 +1,16 @@
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 
-namespace Simple.HttpPatch.Samples
-{
-	public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
+var builder = WebApplication.CreateBuilder(args);
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
-    }
-}
+// Add services to the container.
+
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
