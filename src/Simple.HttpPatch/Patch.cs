@@ -13,19 +13,20 @@ namespace Simple.HttpPatch
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
             PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-            if (propertyInfo != null)
+            if (propertyInfo is not null)
             {
-                var isIgnoredPropery = propertyInfo.GetCustomAttribute<PatchIgnoreAttribute>() != null;
+                var isIgnoredPropery = propertyInfo.GetCustomAttribute<PatchIgnoreAttribute>() is not null;
                 if (!isIgnoredPropery)
                 {
-                    var isIgnoredIfNull = propertyInfo.GetCustomAttribute<PatchIgnoreNullAttribute>() != null;
+                    var isIgnoredIfNull = propertyInfo.GetCustomAttribute<PatchIgnoreNullAttribute>() is not null;
                     if (isIgnoredIfNull)
                     {
-                        if (value != null)
+                        if (value is not null)
                         {
                             _changedProperties.Add(propertyInfo, value);
                         }
-                    } else
+                    }
+                    else
                     {
                         _changedProperties.Add(propertyInfo, value);
                     }
@@ -37,7 +38,7 @@ namespace Simple.HttpPatch
 
         public void Apply(TModel delta)
         {
-            if(delta == null)
+            if (delta is null)
             {
                 throw new ArgumentNullException(nameof(delta));
             }
@@ -63,7 +64,7 @@ namespace Simple.HttpPatch
 
                 if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
                 {
-                    if (value == null)
+                    if (value is null)
                     {
                         return null;
                     }

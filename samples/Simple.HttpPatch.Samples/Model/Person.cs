@@ -2,19 +2,8 @@ using System;
 
 namespace Simple.HttpPatch.Samples.Model
 {
-    public class Person
+    public record Person(int Id, string Name, int? Age, [property: PatchIgnore] Guid Guid, [property: PatchIgnoreNull] DateTime BirthDate)
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int? Age { get; set; }
-        [PatchIgnore]
-        public Guid Guid { get; set; }
-        [PatchIgnoreNull]
-        public DateTime BirthDate { get; set; }
-
-        public override string ToString()
-        {
-            return $"Id: {Id}; Name: {Name}; Age: {Age}; Guid: {Guid}; BirthDate: {BirthDate};";
-        }
+        public override string ToString() => $"Id: {Id}; Name: {Name}; Age: {Age}; Guid: {Guid}; BirthDate: {BirthDate};";
     }
 }
