@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -9,7 +10,6 @@ namespace Simple.HttpPatch
     public sealed class Patch<TModel> : DynamicObject where TModel : class
     {
         private readonly IDictionary<PropertyInfo, object> _changedProperties = new Dictionary<PropertyInfo, object>();
-
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
             PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);

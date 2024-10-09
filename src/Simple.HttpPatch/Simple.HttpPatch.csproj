@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard2.0;netcoreapp2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0</TargetFrameworks>
     <Authors>Roman Marusyk</Authors>
     <Company />
     <PackageProjectUrl></PackageProjectUrl>
@@ -14,5 +14,8 @@
     <PackageIconUrl>https://github.com/Marusyk/Simple.HttpPatch/blob/master/HttpPatch.png?raw=true</PackageIconUrl>
     <LangVersion>10</LangVersion>
   </PropertyGroup>
-
+  
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 </Project>

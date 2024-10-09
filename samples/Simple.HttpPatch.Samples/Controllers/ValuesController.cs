@@ -23,7 +23,7 @@ namespace Simple.HttpPatch.Samples.Controllers
         }
 
         [HttpPatch]
-        public IEnumerable<string> Patch([FromBody] Patch<Person> person)
+        public IEnumerable<string> Patch([ModelBinder(BinderType = typeof(PatchObjectModelBinder<Person>))] Patch<Person> person)
         {
             string original = _person.ToString();
 
