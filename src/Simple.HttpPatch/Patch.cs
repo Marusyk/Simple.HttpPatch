@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -12,11 +13,12 @@ namespace Simple.HttpPatch
 
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo propertyInfo = typeof(TModel).GetProperty(binder.Name,
+                BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
             if (propertyInfo is not null)
             {
-                var isIgnoredPropery = propertyInfo.GetCustomAttribute<PatchIgnoreAttribute>() is not null;
-                if (!isIgnoredPropery)
+                var isIgnoredProperty = propertyInfo.GetCustomAttribute<PatchIgnoreAttribute>() is not null;
+                if (!isIgnoredProperty)
                 {
                     var isIgnoredIfNull = propertyInfo.GetCustomAttribute<PatchIgnoreNullAttribute>() is not null;
                     if (isIgnoredIfNull)
@@ -82,8 +84,8 @@ namespace Simple.HttpPatch
 
         private static bool IsExcludedProperty(string propertyName)
         {
-            IEnumerable<string> defaultExcludedProperies = new[] { "ID" };
-            return defaultExcludedProperies.Contains(propertyName.ToUpper());
+            IEnumerable<string> defaultExcludedProperties = new[] { "ID" };
+            return defaultExcludedProperties.Contains(propertyName.ToUpper());
         }
     }
 }
