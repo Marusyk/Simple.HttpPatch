@@ -6,7 +6,7 @@
 [![NuGet](https://img.shields.io/nuget/dt/Simple.HttpPatch.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md) ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
-# Simple.HttpPatch
+# Simple.HttpPatch [![Stand With Ukraine](https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
 
 Simple.HttpPatch is implementation for .NET (Full framework and Core) to easily allow & apply partial RESTful service (through Web API) using [HTTP PATCH](https://tools.ietf.org/html/rfc5789) method.
 
